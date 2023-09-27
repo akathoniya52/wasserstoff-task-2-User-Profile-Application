@@ -42,7 +42,7 @@ const Nav = () => {
               Create Post
             </Link>
             <button type="bttoun" onClick={signOut} className="outline_btn">
-              Sing Out
+              Sign Out
             </button>
             <Link href="/profile">
               <Image
@@ -64,7 +64,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className="black_btn"
                 >
-                  Sing In
+                  Sign In
                 </button>
               ))}
           </>
@@ -122,7 +122,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className="black_btn"
                 >
-                  Sing In
+                  Sign In
                 </button>
               ))}
           </>
