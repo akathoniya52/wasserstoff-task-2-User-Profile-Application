@@ -2,10 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const [providers, setProviders] = useState(null);
   const [toggle, setToggle] = useState(false);
@@ -41,7 +43,14 @@ const Nav = () => {
             <Link href="/create-prompt" className="black_btn">
               Create Post
             </Link>
-            <button type="bttoun" onClick={signOut} className="outline_btn">
+            <button
+              type="bttoun"
+              onClick={() => {
+                signOut();
+                router.push("/");
+              }}
+              className="outline_btn"
+            >
               Sign Out
             </button>
             <Link href="/profile">
@@ -104,6 +113,7 @@ const Nav = () => {
                   onClick={() => {
                     setToggle(false);
                     signOut();
+                    router.push("/");
                   }}
                   className="mt-5 w-full black_btn"
                 >
