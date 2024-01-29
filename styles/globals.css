@@ -102,7 +102,7 @@
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-lg text-gray-600 sm:text-xl;
 }
 
 .search_input {
@@ -123,7 +123,7 @@
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mx-auto w-full max-w-xl flex justify-center items-center flex-row gap-2;
 }
 
 /* Form Component */

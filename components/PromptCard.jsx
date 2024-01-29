@@ -4,7 +4,13 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
-const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+const PromptCard = ({
+  post,
+  index,
+  handleTagClick,
+  handleEdit,
+  handleDelete,
+}) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
@@ -37,6 +43,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             </p>
           </div>
         </div>
+
         <div className="copy_btn" onClick={handleCopy}>
           <Image
             alt="copy_image"
@@ -50,7 +57,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           />
         </div>
       </div>
-      <p className="my-4 font-satoshi text-sm text-gray-400">{post.prompt}</p>
+
+      <p className="my-4 font-satoshi text-sm text-gray-400">
+        <b className="font-bold ">{index + 1}</b> .{post.prompt}
+      </p>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
         onClick={() => handleTagClick && handleTagClick(post.tag)}

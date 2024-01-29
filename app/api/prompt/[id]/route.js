@@ -44,10 +44,11 @@ export const PATCH = async (request, { params }) => {
 // DELETE (delete)
 
 export const DELETE = async (request, { params }) => {
+  console.log("Delete chala");
   try {
     await connectToDB();
 
-    await Prompt.findByIdAndDelete(prompt.id);
+    await Prompt.findByIdAndDelete({ _id: params.id });
 
     return new Response("Prompt deleted successfully", { status: 200 });
   } catch (error) {

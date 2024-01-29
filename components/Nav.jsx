@@ -25,13 +25,13 @@ const Nav = () => {
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo.svg"
-          alt="promptopia logo"
+          alt="user logo"
           width={30}
           height={30}
           className="object-contain"
         />
         {/* mobile view */}
-        <p className="logo_text">Promptopia</p>
+        <p className="logo_text">User Profile</p>
       </Link>
 
       {/* {alert(providers)} */}
@@ -46,8 +46,8 @@ const Nav = () => {
             <button
               type="bttoun"
               onClick={() => {
-                signOut();
                 router.push("/");
+                signOut();
               }}
               className="outline_btn"
             >

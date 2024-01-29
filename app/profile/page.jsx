@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import Profile from "@components/Profile";
 
@@ -16,8 +17,9 @@ const MyProfile = () => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await response.json();
-
-      setMyPosts(data);
+      let newData = await data.reverse();
+      setMyPosts(newData);
+      // console.log(data)
     };
 
     if (session?.user.id) fetchPosts();
@@ -28,9 +30,7 @@ const MyProfile = () => {
   };
 
   const handleDelete = async (post) => {
-    const hasConfirmed = confirm(
-      "Are you sure you want to delete this prompt?"
-    );
+    const hasConfirmed = confirm("Are you sure you want to delete this post?");
 
     if (hasConfirmed) {
       try {
@@ -48,13 +48,22 @@ const MyProfile = () => {
   };
 
   return (
-    <Profile
-      name="My"
-      desc="Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination"
-      data={myPosts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    <>
+      <Image
+        src={session?.user.image}
+        height={200}
+        width={200}
+        alt="profile"
+        className="rounden-full"
+      />
+      <Profile
+        name={session?.user.name}
+        desc="Welcome to your personalized profile page. Share your exceptional Profile and inspire others with the power of your imagination"
+        data={myPosts}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+    </>
   );
 };
 

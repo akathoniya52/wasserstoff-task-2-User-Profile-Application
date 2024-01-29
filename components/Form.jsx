@@ -7,7 +7,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         <span className="blue_gradient">{type} Post</span>
       </h1>
       <p className="desc text-left max-w-md">
-        {type} and share amazing prompts with the world, and let your
+        {type} and share amazing profile with the world, and let your
         imagination run wild with any AI-powered plateform.
       </p>
 
@@ -17,22 +17,19 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         <label>
           <span className="font-santoshi font-semibold text-base text-gray-700">
-            Your AI Prompt
+            Your Post description
           </span>
           <textarea
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder="Write your prompt here..."
+            placeholder="What's your mind..?"
             required
             className="form_textarea"
           />
         </label>
         <label>
           <span className="font-santoshi font-semibold text-base text-gray-700">
-            Tag{" "}
-            <span className="font-normal">
-              (#product, #webdevelopment, #idea)
-            </span>
+            Tag <span className="font-normal">(#greet, #funny, #idea...)</span>
           </span>
           <input
             value={post.tag}
